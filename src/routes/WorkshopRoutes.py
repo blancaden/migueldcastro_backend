@@ -37,7 +37,7 @@ def post_workshop():
 @main.route('/update',methods=['PUT'])
 def update_workshop():
 
-    ID_Talleres = ""
+    ID_Talleres = request.json['ID_Talleres']
     ID_Usuario = request.json['ID_Usuario']
     Titulo = request.json['Titulo']
     Fecha = request.json['Fecha']

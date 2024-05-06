@@ -15,7 +15,7 @@ class WorkshopServices():
                 print(result)
             
             connection.close()
-            return 'Articulos mostrados'
+            return 'Talleres mostrados'
 
         except Exception as ex:
             print(ex)
@@ -41,7 +41,7 @@ class WorkshopServices():
                 connection.commit()
             
             connection.close()
-            return 'Articulo ingresado'
+            return 'Taller ingresado'
 
         except Exception as ex:
             print(ex)
@@ -68,7 +68,7 @@ class WorkshopServices():
                 connection.commit()
 
             connection.close()
-            return 'Articulo actualizado'
+            return 'Taller actualizado'
 
         except Exception as ex:
             print(ex)
@@ -87,7 +87,7 @@ class WorkshopServices():
                 connection.commit()
 
             connection.close()
-            return 'Articulo eliminado'
+            return 'Taller eliminado'
 
         except Exception as ex:
             print(ex)
