@@ -1,6 +1,6 @@
 class Workshop():
-    def __init__(self, ID_Articulo, ID_Usuario, Titulo, Fecha, Lugar, Horario, Imagen) -> None:
-        self.ID_Articulo=ID_Articulo
+    def __init__(self, ID_Talleres, ID_Usuario, Titulo, Fecha, Lugar, Horario, Imagen) -> None:
+        self.ID_Talleres=ID_Talleres
         self.ID_Usuario=ID_Usuario
         self.Titulo=Titulo
         self.Fecha=Fecha
