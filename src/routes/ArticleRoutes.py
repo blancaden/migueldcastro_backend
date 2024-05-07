@@ -15,7 +15,7 @@ def get_articles():
 
 
 @main.route('/create',methods=['POST'])
-def create_articles():
+def post_articles():
 
     ID_Articulo = ""
     ID_Usuario = request.json['ID_Usuario']
@@ -26,8 +26,8 @@ def create_articles():
 
     article1 = Article(ID_Articulo,ID_Usuario,Titulo,Contenido,Fecha,Imagen)
 
-    create_articles=ArticleServices.create_articles(article1)
-    print(create_articles)
+    post_articles=ArticleServices.post_articles(article1)
+    print(post_articles)
 
     print('Esto se imprime en consola, POST')
     return 'Create exitoso'

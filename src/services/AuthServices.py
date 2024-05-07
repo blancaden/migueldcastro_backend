@@ -17,17 +17,15 @@ class AuthServices():
                 result = cursor.fetchone()
                 print (result)
                 if result:
-                    # Si se encuentra un usuario con las credenciales proporcionadas, retornar los datos del usuario
-                    # return {'username': result['username'], 'role': result['role']}
-                    print("ssssssaaaaaa")
+                    
                     return {'Nombre': result[0]}
                      
                 else:
-                    # Si no se encuentra un usuario con esas credenciales, retornar None
+                
                   
                     return None
         except Exception as ex:
-            # Manejar cualquier excepción que pueda ocurrir durante la autenticación
+            
             print(ex)
     @classmethod
     def generate_token(cls, Name):
