@@ -43,3 +43,20 @@ class FormServices():
 
         except Exception as ex:
             print(ex)
+
+    @classmethod
+    def delete_form(cls, ID_Contacto: int):
+        try:
+            connection = get_connection()
+            print(connection)
+
+            with connection.cursor() as data_castro:
+
+                data_castro.execute("DELETE FROM contacto WHERE ID_Talleres = %s", (ID_Contacto))
+                connection.commit()
+
+            connection.close()
+            return 'Usuario eliminado'
+
+        except Exception as ex:
+            print(ex)
