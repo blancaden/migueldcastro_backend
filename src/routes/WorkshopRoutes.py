@@ -24,8 +24,9 @@ def post_workshop():
     Lugar = request.json['Lugar']
     Horario = request.json['Horario']
     Imagen = request.json['Imagen']
+    Descripción = request.json['Descripción']
 
-    workshop1 = Workshop(ID_Talleres,ID_Usuario,Titulo,Fecha,Lugar,Horario,Imagen)
+    workshop1 = Workshop(ID_Talleres,ID_Usuario,Titulo,Fecha,Lugar,Horario,Imagen, Descripción)
 
     post_workshop=WorkshopServices.post_workshop(workshop1)
     print(post_workshop)
@@ -44,8 +45,9 @@ def update_workshop():
     Lugar = request.json['Lugar']
     Horario = request.json['Horario']
     Imagen = request.json['Imagen']
+    Descripción = request.json['Descripción']
 
-    workshop1 = Workshop(ID_Talleres,ID_Usuario,Titulo,Fecha,Lugar,Horario,Imagen)
+    workshop1 = Workshop(ID_Talleres,ID_Usuario,Titulo,Fecha,Lugar,Horario,Imagen, Descripción)
 
     update_workshop=WorkshopServices.update_workshop(workshop1)
     print(update_workshop)
