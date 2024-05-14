@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from src.services.ArticleServices import ArticleServices
 from src.models.articleModel import Article
 
@@ -11,7 +11,7 @@ def get_articles():
     print(get_articles)
 
     print('Esto se imprime en consola, GET')
-    return 'Get exitoso'
+    return jsonify(get_articles)
 
 
 @main.route('/create',methods=['POST'])

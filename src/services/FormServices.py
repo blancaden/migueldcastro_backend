@@ -12,10 +12,23 @@ class FormServices():
             with connection.cursor() as data_castro:
                 data_castro.execute('SELECT * FROM contacto')
                 result= data_castro.fetchall()
+                
+            user_objects = []
+            for user in result:
+                usuario = {
+                    'ID_Usuario': user[0],
+                    'Nombre': user[1],
+                    'Nombre': user[2],
+                    'Email': user[3],
+                    'Contraseña': user[4],
+                    'Usuario_Tipo': user[5]
+                }
+                user_objects.append(usuario)
+                
                 print(result)
             
             connection.close()
-            return 'Formularios mostrados'
+            return user_objects
 
         except Exception as ex:
             print(ex)

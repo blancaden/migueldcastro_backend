@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from src.services.WorkshopServices import WorkshopServices
 from src.models.workshopModel import Workshop
 
@@ -11,7 +11,7 @@ def get_workshop():
     print(get_workshop)
 
     print('Esto se imprime en consola, GET')
-    return 'Get exitoso'
+    return jsonify(get_workshop)
 
 
 @main.route('/create',methods=['POST'])

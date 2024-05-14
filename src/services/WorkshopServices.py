@@ -12,10 +12,22 @@ class WorkshopServices():
             with connection.cursor() as data_castro:
                 data_castro.execute('SELECT * FROM talleres')
                 result= data_castro.fetchall()
-                print(result)
+
+            workshop_objects = []
+            for workshop in result:
+                art = {
+                    'ID_Talleres': workshop[0],
+                    'ID_Usuario': workshop[1],
+                    'Titulo': workshop[2],
+                    'Fecha': workshop[3],
+                    'Lugar': workshop[4],
+                    'Horario': workshop[5],
+                    'Imagen': workshop[6]
+                }
+                workshop_objects.append(art)  
             
             connection.close()
-            return 'Talleres mostrados'
+            return workshop_objects
 
         except Exception as ex:
             print(ex)

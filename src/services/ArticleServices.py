@@ -12,10 +12,23 @@ class ArticleServices():
             with connection.cursor() as data_castro:
                 data_castro.execute('SELECT * FROM articulo')
                 result= data_castro.fetchall()
+                
+            article_objects = []
+            for article in result:
+                art = {
+                    'ID_Articulo': article[0],
+                    'ID_Usuario': article[1],
+                    'Titulo': article[2],
+                    'Contenido': article[3],
+                    'Fecha': article[4],
+                    'Imagen': article[5]
+                }
+                article_objects.append(art)
+
                 print(result)
             
             connection.close()
-            return 'Articulos mostrados'
+            return article_objects
 
         except Exception as ex:
             print(ex)

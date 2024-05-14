@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from src.services.FormServices import FormServices
 from src.models.formModel import Form
 
@@ -11,7 +11,7 @@ def get_form():
     print(get_form)
 
     print('Esto se imprime en consola, GET')
-    return 'Get exitoso'
+    return jsonify(get_form)
 
 
 @main.route('/create',methods=['POST'])
