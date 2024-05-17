@@ -22,3 +22,15 @@ def login():
         return jsonify(response), 200
     else:
         return jsonify({'error': 'Datos  no válidos'}), 401
+@user_routes.route('/api/logout', methods=['POST'])
+def logout():
+    # Extraer el token de la solicitud
+    token = request.headers.get('Authorization').split()[1]
+    
+    
+    if token:
+        # Invalidar el token llamando a la función correspondiente en AuthServices
+        AuthServices.invalidate_token(token)
+        return jsonify({'message': 'Sesión cerrada exitosamente'}), 200
+    else:
+        return jsonify({'error': 'Token de autorización no encontrado'}), 400    

@@ -13,8 +13,11 @@ def init_app(config):
     app = Flask(__name__)
     app.config.from_object(config)
 
-    # Habilitar CORS
-    CORS(app)
+    # Habilitar CORS, está bien pero no es muy recomendado entonces abajo 
+    #aclaramos otra manera de agregar los distintos orígenes que se puede ir aceptando
+                     # CORS(app)
+    
+    CORS(app, resources={r"/*": {"origins": ["http://localhost:5173", "http://otro-origen.com"]}})
 
     # Registrar blueprints
     app.register_blueprint(ArticleRoutes.main, url_prefix='/articulos')

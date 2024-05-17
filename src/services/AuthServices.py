@@ -21,8 +21,6 @@ class AuthServices():
                     return {'Nombre': result[0]}
                      
                 else:
-                
-                  
                     return None
         except Exception as ex:
             
