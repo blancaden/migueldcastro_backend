@@ -12,10 +12,22 @@ class FormServices():
             with connection.cursor() as data_castro:
                 data_castro.execute('SELECT * FROM contacto')
                 result= data_castro.fetchall()
+                
+            user_objects = []
+            for user in result:
+                usuario = {
+                    'ID_Contacto': user[0],
+                    'Nombre': user[1],
+                    'Email': user[2],
+                    'Mensaje': user[3],
+                    'Asunto': user[4]
+                }
+                user_objects.append(usuario)
+                
                 print(result)
             
             connection.close()
-            return 'Formularios mostrados'
+            return user_objects
 
         except Exception as ex:
             print(ex)
@@ -31,15 +43,32 @@ class FormServices():
                 Nombre = form.Nombre
                 Email = form.Email
                 Mensaje = form.Mensaje
-                Fecha = form.Fecha
+                Asunto = form.Asunto
 
                 
-                data_castro.execute("INSERT INTO `contacto` (`ID_Contacto`, `Nombre`, `Email`, `Mensaje`, `Fecha`) VALUES (%s, %s, %s, %s, %s);",
-                                     (ID_Contacto, Nombre, Email, Mensaje, Fecha))
+                data_castro.execute("INSERT INTO `contacto` (`ID_Contacto`, `Nombre`, `Email`, `Mensaje`, `Asunto`) VALUES (%s, %s, %s, %s, %s);",
+                                     (ID_Contacto, Nombre, Email, Mensaje, Asunto))
                 connection.commit()
             
             connection.close()
             return 'Formulario ingresado'
+
+        except Exception as ex:
+            print(ex)
+
+    @classmethod
+    def delete_form(cls, ID_Contacto: int):
+        try:
+            connection = get_connection()
+            print(connection)
+
+            with connection.cursor() as data_castro:
+
+                data_castro.execute("DELETE FROM contacto WHERE ID_Talleres = %s", (ID_Contacto))
+                connection.commit()
+
+            connection.close()
+            return 'Usuario eliminado'
 
         except Exception as ex:
             print(ex)

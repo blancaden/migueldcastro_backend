@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from src.services.FormServices import FormServices
 from src.models.formModel import Form
 
@@ -11,7 +11,7 @@ def get_form():
     print(get_form)
 
     print('Esto se imprime en consola, GET')
-    return 'Get exitoso'
+    return jsonify(get_form)
 
 
 @main.route('/create',methods=['POST'])
@@ -21,12 +21,23 @@ def post_form():
     Nombre = request.json['Nombre']
     Email = request.json['Email']
     Mensaje = request.json['Mensaje']
-    Fecha = request.json['Fecha']
+    Asunto= request.json['Asunto']
 
-    form1 = Form(ID_Contacto,Nombre,Email,Mensaje,Fecha)
+    form1 = Form(ID_Contacto,Nombre,Email,Mensaje,Asunto)
 
     post_form=FormServices.post_form(form1)
     print(post_form)
 
     print('Esto se imprime en consola, POST')
     return 'Create exitoso'
+
+@main.route('/remove',methods=['DELETE'])
+def delete_form():
+
+    ID_Contacto = request.json['ID_Contacto']
+
+    delete_form=FormServices.delete_form(ID_Contacto)
+    print(delete_form)
+
+    print('Esto se imprime en consola, DELETE')
+    return 'Delete exitoso'

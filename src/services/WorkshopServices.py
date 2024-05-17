@@ -12,10 +12,23 @@ class WorkshopServices():
             with connection.cursor() as data_castro:
                 data_castro.execute('SELECT * FROM talleres')
                 result= data_castro.fetchall()
-                print(result)
+
+            workshop_objects = []
+            for workshop in result:
+                art = {
+                    'ID_Talleres': workshop[0],
+                    'ID_Usuario': workshop[1],
+                    'Titulo': workshop[2],
+                    'Fecha': workshop[3],
+                    'Lugar': workshop[4],
+                    'Horario': workshop[5],
+                    'Imagen': workshop[6],
+                    'Descripción': workshop[7]
+                }
+                workshop_objects.append(art)  
             
             connection.close()
-            return 'Talleres mostrados'
+            return workshop_objects
 
         except Exception as ex:
             print(ex)
@@ -34,10 +47,11 @@ class WorkshopServices():
                 Lugar = workshop.Lugar
                 Horario = workshop.Horario
                 Imagen = workshop.Imagen
+                Descripción = workshop.Descripción
 
                 
-                data_castro.execute("INSERT INTO `talleres` (`ID_Talleres`, `ID_Usuario`, `Titulo`, `Fecha`, `Lugar`, `Horario`, `Imagen`) VALUES (%s, %s, %s, %s, %s, %s, %s);",
-                                     (ID_Talleres, ID_Usuario, Titulo, Fecha, Lugar, Horario, Imagen))
+                data_castro.execute("INSERT INTO `talleres` (`ID_Talleres`, `ID_Usuario`, `Titulo`, `Fecha`, `Lugar`, `Horario`, `Imagen`, `Descripción`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s);",
+                                     (ID_Talleres, ID_Usuario, Titulo, Fecha, Lugar, Horario, Imagen, Descripción))
                 connection.commit()
             
             connection.close()
@@ -61,10 +75,11 @@ class WorkshopServices():
                 Lugar = workshop.Lugar
                 Horario = workshop.Horario
                 Imagen = workshop.Imagen
+                Descripción = workshop.Descripción
 
 
-                data_castro.execute("UPDATE talleres SET ID_Usuario = %s, Titulo = %s, Lugar = %s, Horario = %s, Fecha = %s, Imagen = %s WHERE ID_Talleres = %s",
-                                     (ID_Usuario, Titulo, Lugar, Horario, Fecha, Imagen, ID_Talleres))
+                data_castro.execute("UPDATE talleres SET ID_Usuario = %s, Titulo = %s, Lugar = %s, Horario = %s, Fecha = %s, Imagen = %s, Descripción = %s WHERE ID_Talleres = %s",
+                                     (ID_Usuario, Titulo, Lugar, Horario, Fecha, Imagen, Descripción, ID_Talleres))
                 connection.commit()
 
             connection.close()
