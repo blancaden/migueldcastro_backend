@@ -21,9 +21,9 @@ def post_form():
     Nombre = request.json['Nombre']
     Email = request.json['Email']
     Mensaje = request.json['Mensaje']
-    Fecha = request.json['Fecha']
+    Asunto= request.json['Asunto']
 
-    form1 = Form(ID_Contacto,Nombre,Email,Mensaje,Fecha)
+    form1 = Form(ID_Contacto,Nombre,Email,Mensaje,Asunto)
 
     post_form=FormServices.post_form(form1)
     print(post_form)

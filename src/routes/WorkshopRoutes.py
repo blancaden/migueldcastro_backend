@@ -47,7 +47,7 @@ def update_workshop():
     Imagen = request.json['Imagen']
     Descripción = request.json['Descripción']
 
-    workshop1 = Workshop(ID_Talleres,ID_Usuario,Titulo,Fecha,Lugar,Horario,Imagen, Descripción)
+    workshop1 = Workshop(ID_Talleres,ID_Usuario,Titulo,Fecha,Lugar,Horario,Imagen,Descripción)
 
     update_workshop=WorkshopServices.update_workshop(workshop1)
     print(update_workshop)

@@ -16,12 +16,11 @@ class FormServices():
             user_objects = []
             for user in result:
                 usuario = {
-                    'ID_Usuario': user[0],
+                    'ID_Contacto': user[0],
                     'Nombre': user[1],
-                    'Nombre': user[2],
-                    'Email': user[3],
-                    'Contraseña': user[4],
-                    'Usuario_Tipo': user[5]
+                    'Email': user[2],
+                    'Mensaje': user[3],
+                    'Asunto': user[4]
                 }
                 user_objects.append(usuario)
                 
@@ -44,11 +43,11 @@ class FormServices():
                 Nombre = form.Nombre
                 Email = form.Email
                 Mensaje = form.Mensaje
-                Fecha = form.Fecha
+                Asunto = form.Asunto
 
                 
-                data_castro.execute("INSERT INTO `contacto` (`ID_Contacto`, `Nombre`, `Email`, `Mensaje`, `Fecha`) VALUES (%s, %s, %s, %s, %s);",
-                                     (ID_Contacto, Nombre, Email, Mensaje, Fecha))
+                data_castro.execute("INSERT INTO `contacto` (`ID_Contacto`, `Nombre`, `Email`, `Mensaje`, `Asunto`) VALUES (%s, %s, %s, %s, %s);",
+                                     (ID_Contacto, Nombre, Email, Mensaje, Asunto))
                 connection.commit()
             
             connection.close()

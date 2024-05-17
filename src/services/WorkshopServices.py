@@ -50,7 +50,7 @@ class WorkshopServices():
                 Descripción = workshop.Descripción
 
                 
-                data_castro.execute("INSERT INTO `talleres` (`ID_Talleres`, `ID_Usuario`, `Titulo`, `Fecha`, `Lugar`, `Horario`, `Imagen`, `Descripción`) VALUES (%s, %s, %s, %s, %s, %s, %s);",
+                data_castro.execute("INSERT INTO `talleres` (`ID_Talleres`, `ID_Usuario`, `Titulo`, `Fecha`, `Lugar`, `Horario`, `Imagen`, `Descripción`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s);",
                                      (ID_Talleres, ID_Usuario, Titulo, Fecha, Lugar, Horario, Imagen, Descripción))
                 connection.commit()
             

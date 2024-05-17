@@ -34,7 +34,7 @@ class ArticleServices():
             print(ex)
 
     @classmethod
-    def create_articles(cls, article: Article):
+    def post_articles(cls, article: Article):
         try:
             connection= get_connection()
             print(connection)
