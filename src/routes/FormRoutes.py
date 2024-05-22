@@ -31,13 +31,13 @@ def post_form():
     print('Esto se imprime en consola, POST')
     return 'Create exitoso'
 
-@main.route('/remove',methods=['DELETE'])
+@main.route('/remove', methods=['DELETE'])
 def delete_form():
 
     ID_Contacto = request.json['ID_Contacto']
+    delete_form = FormServices.delete_form(ID_Contacto)
 
-    delete_form=FormServices.delete_form(ID_Contacto)
     print(delete_form)
-
+    
     print('Esto se imprime en consola, DELETE')
     return 'Delete exitoso'

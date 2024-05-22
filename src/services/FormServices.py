@@ -63,8 +63,7 @@ class FormServices():
             print(connection)
 
             with connection.cursor() as data_castro:
-
-                data_castro.execute("DELETE FROM contacto WHERE ID_Talleres = %s", (ID_Contacto))
+                data_castro.execute("DELETE FROM contacto WHERE ID_Contacto = %s", (ID_Contacto,))
                 connection.commit()
 
             connection.close()
@@ -72,3 +71,4 @@ class FormServices():
 
         except Exception as ex:
             print(ex)
+            return 'Error al eliminar el usuario'
