@@ -12,7 +12,7 @@ def users():
 def new_user_data():
     # Define los datos para simular la entrada de un nuevo usuario
     return {
-        "ID_Contacto": 7,
+        "ID_Contacto": 9,
         "Nombre": "Blanca",
         "Email": "nuevo_usuario@example.com",
         "Mensaje": "Este es un mensaje de prueba para el nuevo usuario",

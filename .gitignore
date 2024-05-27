@@ -26,6 +26,10 @@ dist-ssr
 package-lock.json
 
 castro/
+venv/
+lidia/
+clara/
+elisa/
 #variable de entorno
 .env
 
