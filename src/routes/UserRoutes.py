@@ -22,6 +22,7 @@ def login():
         return jsonify(response), 200
     else:
         return jsonify({'error': 'Datos  no válidos'}), 401
+    
 @user_routes.route('/api/logout', methods=['POST'])
 def logout():
     # Extraer el token de la solicitud
