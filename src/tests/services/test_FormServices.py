@@ -10,7 +10,7 @@ def users():
 
 @pytest.fixture(scope='session')
 def new_user_data():
-    # Define los datos para simular la entrada de un nuevo usuario
+   
     return {
         "ID_Contacto": 13,
         "Nombre": "Blanca",
@@ -41,18 +41,17 @@ def test_create_new_user(new_user_data):
 
 
 def test_delete_user(users):
-    # ID_Contacto del usuario a eliminar
+ 
     id_to_delete = 12
     
-    # Verificar que el usuario con ID_Contacto=id_to_delete existe antes de eliminar
+
     assert any(user['ID_Contacto'] == id_to_delete for user in users)
 
-    # Eliminar el usuario
     result = FormServices.delete_form(id_to_delete)
     
     assert result == 'Usuario eliminado'
 
-    # Verificar que el usuario ha sido eliminado
+  
     users_after_deletion = FormServices.get_form()
     assert not any(user['ID_Contacto'] == id_to_delete for user in users_after_deletion)
 
